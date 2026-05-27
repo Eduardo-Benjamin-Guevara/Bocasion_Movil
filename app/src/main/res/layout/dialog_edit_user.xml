@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_medium"
+    android:background="?attr/colorSurface">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del Usuario"
+        android:layout_marginBottom="@dimen/margin_medium"
+        app:boxBackgroundColor="?attr/colorSurface"
+        app:boxStrokeColor="?attr/colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:fontFamily="@font/poppins_regular"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nueva Contraseña (Dejar vacío para no cambiar)"
+        app:endIconMode="password_toggle"
+        android:layout_marginBottom="@dimen/margin_medium"
+        app:boxBackgroundColor="?attr/colorSurface"
+        app:boxStrokeColor="?attr/colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_user_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:fontFamily="@font/poppins_regular"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rol"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="@dimen/text_size_small"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_marginBottom="4dp"/>
+
+    <Spinner
+        android:id="@+id/edit_role_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:minHeight="48dp"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:backgroundTint="?attr/colorPrimary"/>
+
+</LinearLayout>

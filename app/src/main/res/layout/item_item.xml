@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="150dp"
+    android:layout_height="130dp"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    app:cardBackgroundColor="?attr/colorSurfaceVariant">
+
+    <RelativeLayout
+        android:id="@+id/item_card_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/item_imagen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottom_controls_layout"
+            android:scaleType="centerCrop"
+            android:src="@drawable/restaurante" />
+
+        <TextView
+            android:id="@+id/item_stock_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="6dp"
+            android:background="?attr/colorOnSurface"
+            android:paddingHorizontal="3dp"
+            android:paddingVertical="1dp"
+            android:text="Stock: 10"
+            android:textColor="?attr/colorSurface"
+            android:textSize="9sp"
+            android:textStyle="bold"
+            android:elevation="2dp"/>
+
+        <TextView
+            android:id="@+id/cart_item_quantity_text"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:text="1"
+            android:textSize="11sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:background="@drawable/circular_badge_primary"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="6dp"
+            android:elevation="10dp"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/bottom_controls_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="?attr/colorSurface"
+            android:orientation="horizontal"
+            android:paddingVertical="3dp"
+            android:paddingHorizontal="6dp"
+            android:gravity="center_vertical">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_button"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:elevation="4dp"
+                android:padding="0dp"
+                android:text="+"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="?attr/colorError"
+                app:cornerRadius="80dp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp">
+
+                <TextView
+                    android:id="@+id/item_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre del Plato Largo"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/item_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="S/ 0.00"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="9sp"
+                    android:layout_marginTop="1dp" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/minus_button"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:elevation="4dp"
+                android:padding="0dp"
+                android:text="-"
+                android:textColor="?attr/colorOnSecondary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="?attr/colorSecondary"
+                app:cornerRadius="80dp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

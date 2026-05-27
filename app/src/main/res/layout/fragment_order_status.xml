@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado del Pedido"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_logo"
+            android:layout_marginBottom="16dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BOCASION"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+
+            <ImageButton
+                android:id="@+id/btn_prev_order"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_arrow_left"
+                app:tint="?attr/colorPrimary"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/order_navigation_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 / 1"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginHorizontal="20dp"/>
+
+            <ImageButton
+                android:id="@+id/btn_next_order"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_arrow_right"
+                app:tint="?attr/colorPrimary"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="?attr/colorSurfaceVariant">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:id="@+id/order_status_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estado"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/order_cook_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cocinero"
+                    android:layout_marginTop="14dp"/>
+
+                <TextView
+                    android:id="@+id/order_type_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pago"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/order_price_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Precio"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/order_time_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hora"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/order_code_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Código"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/order_review_status_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Esperando calificación..."
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorPrimary"
+                    android:visibility="gone"
+                    android:layout_marginTop="18dp"/>
+
+                <TextView
+                    android:id="@+id/order_message_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sin pedidos"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    android:layout_marginTop="20dp"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancelar Pedido"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_review_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calificar Pedido"
+            android:visibility="gone"
+            android:layout_marginTop="12dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="?attr/colorSurface">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Código QR de tu Pedido"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorOnSurface"
+        android:layout_marginBottom="16dp"/>
+
+    <ImageView
+        android:id="@+id/qr_image_view"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:contentDescription="Código QR del Pedido"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/dialog_order_code_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="CÓDIGO: ABC-123"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorPrimary"/>
+
+</LinearLayout>

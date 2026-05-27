@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ===================================================== -->
+    <!--                    FONDOS CREMA                       -->
+    <!-- ===================================================== -->
+    <color name="cream_background">#FFF6E9</color>
+    <color name="cream_surface">#FBEEDC</color>
+    <color name="cream_surface_dark">#E6D7C6</color>
+    <color name="cream_pure">#FFF9F0</color>
+    <color name="cream_soft">#FFEFD9</color>
+
+    <!-- ===================================================== -->
+    <!--                    PALETA ROJOS                       -->
+    <!-- ===================================================== -->
+    <color name="red_primary">#00897B</color>
+    <color name="red_primary_dark">#004D40</color>
+    <color name="red_primary_light">#4DB6AC</color>
+
+    <!-- Variaciones pro -->
+    <color name="red_vibrant">#00BFA5</color>
+    <color name="red_soft">#80CBC4</color>
+    <color name="red_ultra_light">#D9F5F2</color>
+    <color name="red_extra_dark">#00251A</color>
+    <color name="red_pastel">#B2DFDB</color>
+    <color name="red_muted">#5F9EA0</color>
+
+    <!-- ===================================================== -->
+    <!--                    PALETA AZULES                      -->
+    <!-- ===================================================== -->
+    <color name="blue_primary">#1E88E5</color>
+    <color name="blue_primary_dark">#0D47A1</color>
+    <color name="blue_primary_light">#6AB7FF</color>
+
+    <!-- Variaciones pro -->
+    <color name="blue_navy">#002B5B</color>
+    <color name="blue_soft">#90CAF9</color>
+    <color name="blue_ultra_light">#D6E9FF</color>
+    <color name="blue_extra_dark">#001A33</color>
+    <color name="blue_muted">#557799</color>
+    <color name="blue_pastel">#BBDEFB</color>
+    <color name="blue_vibrant">#1FA0FF</color>
+
+    <!-- ===================================================== -->
+    <!--                    ACENTOS                            -->
+    <!-- ===================================================== -->
+    <color name="accent_mint">#82E3D3</color>
+    <color name="accent_gold">#FFC947</color>
+    <color name="accent_purple">#AB74FF</color>
+    <color name="accent_salmon">#FF9776</color>
+    <color name="accent_cyan">#72DFFF</color>
+
+    <!-- ===================================================== -->
+    <!--                    ESTADOS                           -->
+    <!-- ===================================================== -->
+    <color name="success_green">#4CAF50</color>
+    <color name="success_green_dark">#2E7D32</color>
+
+    <color name="warning_yellow">#FFC107</color>
+    <color name="warning_yellow_dark">#F9A825</color>
+
+    <color name="error_red">#D32F2F</color>
+    <color name="error_red_dark">#B71C1C</color>
+
+    <color name="info_blue">#0288D1</color>
+    <color name="info_blue_dark">#01579B</color>
+
+    <!-- Estados pedidos -->
+    <color name="order_pending">#FFC107</color>
+    <color name="order_accepted">#4CAF50</color>
+    <color name="order_preparing">#03A9F4</color>
+    <color name="order_ready">#1E88E5</color>
+    <color name="order_completed">#9C27B0</color>
+
+    <!-- ===================================================== -->
+    <!--                    NEUTROS                            -->
+    <!-- ===================================================== -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="gray_50">#FAFAFA</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_600">#757575</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_800">#424242</color>
+    <color name="gray_900">#212121</color>
+
+    <!-- ===================================================== -->
+    <!--                    TEXTOS                             -->
+    <!-- ===================================================== -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#424242</color>
+    <color name="text_disabled">#9E9E9E</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    <color name="text_on_secondary">#FFFFFF</color>
+    <color name="text_on_cream">#141414</color>
+
+    <!-- ===================================================== -->
+    <!--                    COMPONENTES                        -->
+    <!-- ===================================================== -->
+    <color name="border_light">#E6E6E6</color>
+    <color name="border_medium">#BDBDBD</color>
+    <color name="border_dark">#757575</color>
+
+    <color name="input_background">#FFFFFF</color>
+    <color name="input_background_disabled">#F0F0F0</color>
+    <color name="input_hint">#9E9E9E</color>
+
+    <color name="chip_background">#E3F2FD</color>
+    <color name="chip_selected">#64B5F6</color>
+
+    <color name="toolbar_color">#FFF2DF</color>
+    <color name="bottom_nav_color">#FFF0E0</color>
+
+    <color name="badge_red">#FF4949</color>
+    <color name="badge_blue">#3DA9FF</color>
+
+    <!-- ===================================================== -->
+    <!--                    OVERLAYS Y SCRIMS                  -->
+    <!-- ===================================================== -->
+    <color name="scrim_dark">#66000000</color>
+    <color name="scrim_light">#33FFFFFF</color>
+    <color name="overlay_soft">#22E53935</color>
+    <color name="overlay_blue">#221E88E5</color>
+
+    <!-- ===================================================== -->
+    <!--                    GRADIENTES                         -->
+    <!-- ===================================================== -->
+    <color name="gradient_red_start">#FF6F60</color>
+    <color name="gradient_red_end">#E53935</color>
+
+    <color name="gradient_blue_start">#6AB7FF</color>
+    <color name="gradient_blue_end">#1E88E5</color>
+
+    <color name="gradient_mixed_start">#FF6F60</color>
+    <color name="gradient_mixed_end">#1E88E5</color>
+    <color name="color_success">#00C853</color> <!-- Verde éxito -->
+
+
+</resources>

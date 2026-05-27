@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    >
+
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:src="@drawable/ic_closed_cafe"
+        android:contentDescription="Cafetería cerrada"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cafetería Cerrada"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nuestro horario de atención es hasta las 9:40 PM"
+        android:textAlignment="center"
+        android:layout_marginTop="12dp"/>
+
+</LinearLayout>

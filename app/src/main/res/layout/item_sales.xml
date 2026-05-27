@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginTop="8dp"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="10dp"
+    app:strokeColor="?attr/colorSecondary"
+    app:strokeWidth="0dp"
+    app:cardBackgroundColor="?attr/colorSurfaceVariant">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/sales_cook_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cocinero: Nombre"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins_medium" />
+
+            <TextView
+                android:id="@+id/Ventas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="N° Ventas: "
+                android:textColor="?attr/colorTertiary"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins_bold" />
+
+            <TextView
+                android:id="@+id/sales_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$0.00"
+                android:textColor="?attr/colorTertiary"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins_bold" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/details_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Detalles"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginBottom="12dp"
+            app:cornerRadius="8dp"
+            app:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary"
+            android:elevation="0dp" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

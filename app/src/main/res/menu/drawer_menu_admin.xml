@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_casa"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_manage_items"
+            android:icon="@drawable/ic_mesas"
+            android:title="Gestionar Platos" />
+        <item
+            android:id="@+id/nav_manage_categories"
+            android:icon="@drawable/ic_categor_as"
+            android:title="Gestionar Categorías" />
+        <item
+            android:id="@+id/nav_manage_users"
+            android:icon="@drawable/ic_profile"
+            android:title="Gestionar Usuarios" />
+        <item
+            android:id="@+id/nav_sales"
+            android:icon="@drawable/ic_ventas"
+            android:title="Ventas" />
+
+    </group>
+    <item android:title="Opciones de Cuenta">
+        <menu>
+            <item
+                android:id="@+id/nav_profile"
+                android:icon="@drawable/ic_profile"
+                android:title="Perfil" />
+        </menu>
+    </item>
+</menu>

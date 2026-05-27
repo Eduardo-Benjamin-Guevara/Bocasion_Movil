@@ -1,0 +1,11 @@
+<!-- res/drawable/ic_arrow_left.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <path
+        android:fillColor="@color/red_primary_light"
+        android:pathData="M14.71,6.71L9.41,12l5.3,5.29-1.42,1.42L6.59,12l6.7-6.71z"/>
+</vector>

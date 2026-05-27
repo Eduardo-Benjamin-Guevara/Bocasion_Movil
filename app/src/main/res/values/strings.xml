@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bocasion Pedidos</string>
+
+    <string name="login_title">Iniciar Sesión</string>
+    <string name="register_title">Registrarse</string>
+    <string name="email_hint">Correo electrónico</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="login_button">Iniciar Sesión</string>
+    <string name="register_button">Registrarse</string>
+
+    <string name="nav_menu">Menú</string>
+    <string name="nav_cart">Carrito</string>
+    <string name="nav_history">Historial</string>
+    <string name="nav_pending">Pendientes</string>
+    <string name="nav_preparing">Preparando</string>
+    <string name="nav_manage_items">Gestionar Platos</string>
+    <string name="nav_manage_users">Gestionar Usuarios</string>
+    <string name="nav_sales">Ventas</string>
+
+    <string name="order_code">Código del Pedido</string>
+    <string name="order_status">Estado</string>
+    <string name="order_pending">Pendiente</string>
+    <string name="order_accepted">Aceptado</string>
+    <string name="order_preparing">Preparando</string>
+    <string name="order_ready">Listo</string>
+    <string name="order_completed">Completado</string>
+    <string name="checkout_button">Hacer Pedido</string>
+
+    <string name="item_name">Nombre</string>
+    <string name="item_price">Precio</string>
+    <string name="add_button">Agregar</string>
+
+    <string name="user_name">Nombre</string>
+    <string name="user_email">Correo</string>
+    <string name="user_role">Rol</string>
+
+    <string name="sales_cook_id">ID Cocinero</string>
+    <string name="sales_total">Total Ventas</string>
+
+    <string name="login_success">Inicio de sesión exitoso</string>
+    <string name="register_success">Registro exitoso</string>
+    <string name="order_placed">Pedido realizado</string>
+    <string name="cart_empty">Carrito vacío</string>
+    <string name="error_generic">Error desconocido</string>
+    <string name="nav_order_status">Estado de Pedido</string>
+    <string name="Categorías">Categorías</string>
+    <string name="email_verification_required">Por favor, verifica tu correo electrónico para iniciar sesión.</string>
+    <string-array name="user_roles_array">
+        <item>usuario</item>
+        <item>cocinero</item>
+        <item>admin</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

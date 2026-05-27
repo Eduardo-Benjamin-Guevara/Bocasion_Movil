@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "699748187237",
+    "firebase_url": "https://capstone-bocasio-default-rtdb.firebaseio.com",
+    "project_id": "capstone-bocasio",
+    "storage_bucket": "capstone-bocasio.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699748187237:android:ed97bcaf9224e2ee1eda8c",
+        "android_client_info": {
+          "package_name": "com.proyecto.capstone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSEvCl4V2NXNpO3NznfopQaKHb5rm1gOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

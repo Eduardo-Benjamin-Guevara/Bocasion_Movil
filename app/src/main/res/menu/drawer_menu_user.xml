@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_casa"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_menu"
+            android:icon="@drawable/ic_mesas"
+            android:title="Menú" />
+        <item
+            android:id="@+id/nav_cart"
+            android:icon="@drawable/ic_cart"
+            android:title="Carrito" />
+        <item
+            android:id="@+id/nav_order_status"
+            android:icon="@drawable/ic_pending"
+            android:title="Estado del Pedido" />
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_ventas"
+            android:title="Historial de Pedidos" />
+    </group>
+    <item android:title="Opciones de Cuenta">
+        <menu>
+            <item
+                android:id="@+id/nav_profile"
+                android:icon="@drawable/ic_profile"
+                android:title="Perfil" />
+        </menu>
+    </item>
+</menu>

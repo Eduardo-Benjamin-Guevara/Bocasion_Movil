@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="5dp"
+    app:cardBackgroundColor="?attr/colorSurfaceVariant">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/order_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pedido"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="?attr/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/order_items_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Items"/>
+
+        <TextView
+            android:id="@+id/payment_method_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Método"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/payment_status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pago pendiente"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_marginTop="6dp"/>
+
+        <TextView
+            android:id="@+id/order_status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado"
+            android:textStyle="bold"
+            android:layout_marginTop="6dp"/>
+
+        <TextView
+            android:id="@+id/order_schedule_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hora programada"
+            android:textStyle="bold"
+            android:layout_marginTop="6dp"/>
+
+        <TextView
+            android:id="@+id/order_waiting_review_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Esperando calificación..."
+            android:textColor="@color/badge_red"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_confirm_payment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirmar Pago"
+            android:layout_marginTop="14dp"
+            android:visibility="gone"
+            app:backgroundTint="@android:color/holo_green_dark"
+            android:textColor="@android:color/white"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/order_action_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Acción"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

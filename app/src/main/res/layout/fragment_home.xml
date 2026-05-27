@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="?attr/colorSurface">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="?attr/colorSurfaceVariant">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="32dp">
+
+            <LinearLayout
+                android:id="@+id/status_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_gravity="start"
+                android:layout_marginBottom="20dp">
+
+                <View
+                    android:id="@+id/status_circle"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:background="@drawable/status_circle"/>
+
+                <TextView
+                    android:id="@+id/status_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estado"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_logo"
+                android:contentDescription="Logo Tepig Grande"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:id="@+id/tv_welcome_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¡Bienvenido a Bocasion Pedidos!"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/tv_role_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Explora nuestro delicioso menú"
+                android:textSize="20sp"
+                android:textColor="?attr/colorOnSurface"
+                android:layout_marginBottom="16dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/colorPrimary"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/tv_role_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Realiza tu pedido fácil y rápido, y disfruta del mejor sabor de Tepig Pedidos."
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="?attr/colorOnSurface"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Capstone" parent="Theme.Material3.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/red_primary</item>
+        <item name="colorOnPrimary">@color/text_on_primary</item>
+        <item name="colorSecondary">@color/blue_primary</item>
+        <item name="colorOnSecondary">@color/text_on_primary</item>
+        <item name="colorTertiary">@color/accent_gold</item>
+        <item name="colorOnTertiary">@color/black</item>
+
+        <item name="android:windowBackground">@color/cream_background</item>
+        <item name="colorSurface">@color/cream_surface</item>
+        <item name="colorSurfaceVariant">@color/cream_surface_dark</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextTitle</item>
+        <item name="textAppearanceBodyLarge">@style/TextBody</item>
+
+        <item name="materialButtonOutlinedStyle">@style/ButtonPrimary</item>
+        <item name="textInputStyle">@style/TextInputLayoutPrimary</item>
+
+
+    </style>
+
+</resources>

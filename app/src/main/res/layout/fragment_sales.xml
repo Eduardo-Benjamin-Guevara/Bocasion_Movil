@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/colorSurface">
+
+    <!-- HEADER -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_logo"
+            app:tint="?attr/colorOnPrimary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ventas y Analítica"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/poppins_bold"/>
+    </LinearLayout>
+
+    <!-- CARD RESUMEN -->
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/summary_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="?attr/colorPrimary">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rendimiento General"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="15sp"
+                android:fontFamily="@font/poppins_medium"/>
+
+            <TextView
+                android:id="@+id/txt_general_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⭐ 0.0"
+                android:textColor="?attr/colorOnPrimary"
+                android:textStyle="bold"
+                android:textSize="34sp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_bold"/>
+
+            <TextView
+                android:id="@+id/txt_general_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Analizando comentarios..."
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_regular"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="18dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="18dp"
+                    app:cardBackgroundColor="?attr/colorSecondaryContainer">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Semanal"
+                            android:textStyle="bold"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:id="@+id/txt_weekly_avg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⭐ 0.0"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp"/>
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    app:cardCornerRadius="18dp"
+                    app:cardBackgroundColor="?attr/colorTertiaryContainer">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mensual"
+                            android:textStyle="bold"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:id="@+id/txt_monthly_avg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⭐ 0.0"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp"/>
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_analytics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ver análisis completo"
+                android:textColor="?attr/colorOnSecondary"
+                android:layout_marginTop="20dp"
+                app:cornerRadius="14dp"
+                app:backgroundTint="?attr/colorSecondary"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- SPINNER -->
+
+    <Spinner
+        android:id="@+id/cook_filter_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/colorSurfaceVariant"
+        android:padding="12dp"
+        android:textAlignment="center"/>
+
+    <!-- LISTA -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_sales"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingBottom="10dp"
+        android:clipToPadding="false"/>
+
+</LinearLayout>
