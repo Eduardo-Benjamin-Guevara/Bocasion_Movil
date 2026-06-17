@@ -7,6 +7,7 @@ public class Order {
 
     private String userId;
     private String userName;
+    private String userEmail;
     private List<OrderItem> items;
     private Long scheduledTime;
     private double totalPrice;
@@ -34,6 +35,7 @@ public class Order {
 
     public Order(String userId,
                  String userName,
+                 String userEmail,
                  List<OrderItem> items,
                  double totalPrice,
                  String orderCode,
@@ -47,9 +49,9 @@ public class Order {
                  Boolean reviewed,
                  Long scheduledTime) {
 
-
         this.userId = userId;
         this.userName = userName;
+        this.userEmail = userEmail;
         this.items = items;
         this.totalPrice = totalPrice;
         this.orderCode = orderCode;
@@ -64,8 +66,6 @@ public class Order {
         this.scheduledTime = scheduledTime;
     }
 
-
-
     public Long getScheduledTime() {
         return scheduledTime;
     }
@@ -73,6 +73,7 @@ public class Order {
     public void setScheduledTime(Long scheduledTime) {
         this.scheduledTime = scheduledTime;
     }
+
     public String getUserId() {
         return userId;
     }
@@ -87,6 +88,14 @@ public class Order {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public List<OrderItem> getItems() {
@@ -185,9 +194,7 @@ public class Order {
         public OrderItem() {
         }
 
-        public OrderItem(String itemId,
-                         int quantity) {
-
+        public OrderItem(String itemId, int quantity) {
             this.itemId = itemId;
             this.quantity = quantity;
         }
