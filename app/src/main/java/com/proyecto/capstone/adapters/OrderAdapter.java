@@ -1,6 +1,5 @@
 package com.proyecto.capstone.adapters;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.proyecto.capstone.R;
 import com.proyecto.capstone.models.Order;
 
@@ -23,15 +18,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class OrderAdapter
-        extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
+public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
 
     private final List<Order> orderList;
-
     private final Map<String, String> itemIdToNameMap;
-
     private final OnOrderActionListener listener;
-
     private final ViewType viewType;
 
     public enum ViewType {
@@ -42,6 +33,7 @@ public class OrderAdapter
 
     public interface OnOrderActionListener {
         void onAction(Order order);
+        void onConfirmPayment(Order order);
     }
 
     public OrderAdapter(
@@ -50,7 +42,6 @@ public class OrderAdapter
             OnOrderActionListener listener,
             ViewType viewType
     ) {
-
         this.orderList = orderList;
         this.itemIdToNameMap = itemIdToNameMap;
         this.listener = listener;
@@ -59,215 +50,75 @@ public class OrderAdapter
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(
-            @NonNull ViewGroup parent,
-            int viewType
-    ) {
-
-        View view =
-                LayoutInflater.from(parent.getContext())
-                        .inflate(
-                                R.layout.item_order,
-                                parent,
-                                false
-                        );
-
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_order, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(
-            @NonNull ViewHolder holder,
-            int position
-    ) {
-
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Order order = orderList.get(position);
 
-        holder.userNameText.setText(
-                "Pedido de: " + order.getUserName()
-        );
+        holder.userNameText.setText(order.getUserName() != null ? order.getUserName() : "Usuario");
+        holder.userEmailText.setText(order.getUserEmail() != null ? order.getUserEmail() : "Sin correo");
 
-        StringBuilder itemsBuilder =
-                new StringBuilder();
-
-        for (Order.OrderItem item :
-                order.getItems()) {
-
-            String itemName =
-                    itemIdToNameMap.getOrDefault(
-                            item.getItemId(),
-                            "Producto"
-                    );
-
-            itemsBuilder.append(
-                            item.getQuantity()
-                    )
-                    .append(" x ")
-                    .append(itemName)
-                    .append("\n");
+        StringBuilder itemsBuilder = new StringBuilder();
+        if (order.getItems() != null) {
+            for (Order.OrderItem item : order.getItems()) {
+                String name = itemIdToNameMap.get(item.getItemId());
+                if (name == null) name = "Producto";
+                itemsBuilder.append("- ").append(name).append(" (x").append(item.getQuantity()).append(")\n");
+            }
         }
+        holder.itemsText.setText(itemsBuilder.toString().trim());
 
-        holder.itemsText.setText(
-                itemsBuilder.toString()
-        );
-
-        holder.paymentMethodText.setText(
-                "Pago: " + order.getPaymentMethod()
-        );
-
-        holder.paymentStatusText.setText(
-                order.isPaymentConfirmed()
-                        ? "Pago confirmado"
-                        : "Pago pendiente"
-        );
-
-        holder.paymentStatusText.setTextColor(
-                order.isPaymentConfirmed()
-                        ? Color.parseColor("#4CAF50")
-                        : Color.parseColor("#F44336")
-        );
+        holder.paymentMethodText.setText("Método: " + order.getPaymentMethod());
+        holder.paymentStatusText.setText("Pago: " + (order.isPaymentConfirmed() ? "Confirmado" : "Pendiente"));
+        holder.statusText.setText("Estado: " + order.getStatus());
 
         if (order.getScheduledTime() != null) {
-
-            holder.scheduleText.setVisibility(
-                    View.VISIBLE
-            );
-
-            holder.scheduleText.setText(
-                    "Hora programada: "
-                            + new SimpleDateFormat(
-                            "HH:mm",
-                            Locale.getDefault()
-                    ).format(
-                            new Date(
-                                    order.getScheduledTime()
-                            )
-                    )
-            );
-
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.getDefault());
+            holder.scheduleText.setText("Hora de Entrega: " + sdf.format(new Date(order.getScheduledTime())));
+            holder.scheduleText.setVisibility(View.VISIBLE);
         } else {
-
-            holder.scheduleText.setVisibility(
-                    View.GONE
-            );
+            holder.scheduleText.setVisibility(View.GONE);
         }
 
-        switch (viewType) {
+        boolean isTarjeta = order.getPaymentMethod() != null && order.getPaymentMethod().toLowerCase().contains("tarjeta");
 
-            case PENDING:
+        if (viewType == ViewType.PENDING) {
+            holder.actionButton.setText("Aceptar");
+            holder.actionButton.setVisibility(View.VISIBLE);
+            holder.actionButton.setOnClickListener(v -> {
+                if (listener != null) listener.onAction(order);
+            });
+            holder.confirmPaymentButton.setVisibility(View.GONE);
 
-                holder.actionButton.setVisibility(
-                        View.VISIBLE
-                );
+        } else if (viewType == ViewType.PREPARING) {
+            holder.actionButton.setText("Listo");
+            holder.actionButton.setVisibility(View.VISIBLE);
+            holder.actionButton.setOnClickListener(v -> {
+                if (listener != null) listener.onAction(order);
+            });
 
-                holder.confirmPaymentButton.setVisibility(
-                        View.GONE
-                );
+            if (!order.isPaymentConfirmed() && isTarjeta) {
+                holder.confirmPaymentButton.setVisibility(View.VISIBLE);
+                holder.confirmPaymentButton.setOnClickListener(v -> {
+                    if (listener != null) listener.onConfirmPayment(order);
+                });
+            } else {
+                holder.confirmPaymentButton.setVisibility(View.GONE);
+            }
 
-                holder.waitingReviewText.setVisibility(
-                        View.GONE
-                );
+        } else {
+            holder.actionButton.setVisibility(View.GONE);
+            holder.confirmPaymentButton.setVisibility(View.GONE);
 
-                holder.actionButton.setText(
-                        "Aceptar"
-                );
-
-                holder.actionButton.setOnClickListener(
-                        v -> listener.onAction(order)
-                );
-
-                break;
-
-            case PREPARING:
-
-                holder.actionButton.setVisibility(
-                        View.VISIBLE
-                );
-
-                holder.actionButton.setText(
-                        "Listo"
-                );
-
-                holder.confirmPaymentButton.setVisibility(
-                        order.isPaymentConfirmed()
-                                ? View.GONE
-                                : View.VISIBLE
-                );
-
-                holder.waitingReviewText.setVisibility(
-                        Boolean.TRUE.equals(
-                                order.getWaitingReview()
-                        )
-                                ? View.VISIBLE
-                                : View.GONE
-                );
-
-                holder.confirmPaymentButton
-                        .setOnClickListener(v -> {
-
-                            FirebaseDatabase.getInstance()
-                                    .getReference("orders")
-                                    .orderByChild("orderCode")
-                                    .equalTo(order.getOrderCode())
-                                    .addListenerForSingleValueEvent(
-                                            new ValueEventListener() {
-
-                                                @Override
-                                                public void onDataChange(
-                                                        @NonNull DataSnapshot snapshot
-                                                ) {
-
-                                                    for (DataSnapshot s :
-                                                            snapshot.getChildren()) {
-
-                                                        s.getRef()
-                                                                .child("paymentConfirmed")
-                                                                .setValue(true);
-                                                    }
-                                                }
-
-                                                @Override
-                                                public void onCancelled(
-                                                        @NonNull DatabaseError error
-                                                ) {
-                                                }
-                                            });
-
-                            holder.paymentStatusText.setText(
-                                    "Pago confirmado"
-                            );
-
-                            holder.paymentStatusText.setTextColor(
-                                    Color.parseColor("#4CAF50")
-                            );
-
-                            holder.confirmPaymentButton.setVisibility(
-                                    View.GONE
-                            );
-                        });
-
-                holder.actionButton.setOnClickListener(
-                        v -> listener.onAction(order)
-                );
-
-                break;
-
-            case HISTORY:
-            default:
-
-                holder.actionButton.setVisibility(
-                        View.GONE
-                );
-
-                holder.confirmPaymentButton.setVisibility(
-                        View.GONE
-                );
-
-                holder.waitingReviewText.setVisibility(
-                        View.GONE
-                );
-
-                break;
+            if (Boolean.TRUE.equals(order.getWaitingReview()) && !Boolean.TRUE.equals(order.getReviewed())) {
+                holder.waitingReviewText.setVisibility(View.VISIBLE);
+            } else {
+                holder.waitingReviewText.setVisibility(View.GONE);
+            }
         }
     }
 
@@ -276,70 +127,23 @@ public class OrderAdapter
         return orderList.size();
     }
 
-    public static class ViewHolder
-            extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView userNameText, userEmailText, itemsText;
+        TextView paymentMethodText, paymentStatusText, statusText, scheduleText, waitingReviewText;
+        MaterialButton actionButton, confirmPaymentButton;
 
-        TextView userNameText;
-
-        TextView itemsText;
-
-        TextView paymentMethodText;
-
-        TextView paymentStatusText;
-
-        TextView scheduleText;
-
-        TextView waitingReviewText;
-
-        MaterialButton actionButton;
-
-        MaterialButton confirmPaymentButton;
-
-        public ViewHolder(
-                @NonNull View itemView
-        ) {
-
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            userNameText =
-                    itemView.findViewById(
-                            R.id.order_user_name
-                    );
-
-            itemsText =
-                    itemView.findViewById(
-                            R.id.order_items_list
-                    );
-
-            paymentMethodText =
-                    itemView.findViewById(
-                            R.id.payment_method_text
-                    );
-
-            paymentStatusText =
-                    itemView.findViewById(
-                            R.id.payment_status_text
-                    );
-
-            scheduleText =
-                    itemView.findViewById(
-                            R.id.order_schedule_text
-                    );
-
-            waitingReviewText =
-                    itemView.findViewById(
-                            R.id.order_waiting_review_text
-                    );
-
-            actionButton =
-                    itemView.findViewById(
-                            R.id.order_action_button
-                    );
-
-            confirmPaymentButton =
-                    itemView.findViewById(
-                            R.id.btn_confirm_payment
-                    );
+            userNameText = itemView.findViewById(R.id.order_user_name);
+            userEmailText = itemView.findViewById(R.id.order_user_email);
+            itemsText = itemView.findViewById(R.id.order_items_list);
+            paymentMethodText = itemView.findViewById(R.id.payment_method_text);
+            paymentStatusText = itemView.findViewById(R.id.payment_status_text);
+            statusText = itemView.findViewById(R.id.order_status_text);
+            scheduleText = itemView.findViewById(R.id.order_schedule_text);
+            waitingReviewText = itemView.findViewById(R.id.order_waiting_review_text);
+            actionButton = itemView.findViewById(R.id.order_action_button);
+            confirmPaymentButton = itemView.findViewById(R.id.btn_confirm_payment);
         }
     }
 }
