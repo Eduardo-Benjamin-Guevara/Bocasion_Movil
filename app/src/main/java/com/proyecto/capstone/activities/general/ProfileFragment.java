@@ -138,27 +138,6 @@ public class ProfileFragment extends Fragment {
                 );
     }
 
-    private void updatePassword(String currentPass, String newPass) {
-        AuthCredential credential = EmailAuthProvider.getCredential(firebaseUser.getEmail(), currentPass);
-
-        firebaseUser.reauthenticate(credential)
-                .addOnSuccessListener(aVoid -> {
-
-                    firebaseUser.updatePassword(newPass)
-                            .addOnSuccessListener(aVoid2 -> {
-                                Toast.makeText(getContext(), "Contraseña actualizada exitosamente.", Toast.LENGTH_SHORT).show();
-                                currentPassEdit.setText("");
-                                newPassEdit.setText("");
-                            })
-                            .addOnFailureListener(e ->
-                                    Toast.makeText(getContext(), "Error al actualizar contraseña: " + e.getMessage(), Toast.LENGTH_LONG).show()
-                            );
-
-                })
-                .addOnFailureListener(e ->
-                        Toast.makeText(getContext(), "La contraseña actual es incorrecta.", Toast.LENGTH_LONG).show()
-                );
-    }
 
     private void performLogout() {
         mAuth.signOut();
